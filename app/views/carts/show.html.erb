@@ -1,9 +1,8 @@
 <section class="cart-show">
-
-  <header class="page-header">
+  <% if enhanced_cart.count > 0 %>
+    <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +47,13 @@
       <% end %>
     </div>
   </div>
+  <% else %>
+  <div class="alert alert-warning" role="alert">
+    <h3>Your Cart is empty.</h3>
+    <br>
+   <h5> Go to <%= link_to 'Home', :root %> and select some products you would like to purchase </h5>
+  </div>
+    
+  <% end %>
 
 </section>
