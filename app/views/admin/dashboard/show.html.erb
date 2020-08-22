@@ -1,7 +1,6 @@
 <div class='cateogries'>
   <h3>There are <%= @categories.count %> Categories in the Database</h3>
-  <h4>Manage <%= link_to 'Categories',  [:admin, :products] %></h4> 
-   <%# NOTETOKAUSH: Change this to categories route %>
+  <h4>Manage <%= link_to 'Categories',  [:admin, :categories] %></h4> 
     <ul>
       <% @categories.each do |category| %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
