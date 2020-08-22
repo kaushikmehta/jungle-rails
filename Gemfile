@@ -30,6 +30,10 @@ gem 'puma'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
+
+# Bootsrtap forms
+gem 'bootstrap_form', '~> 2.3'
+
 gem 'money-rails'
 gem 'carrierwave'
 gem 'rmagick'

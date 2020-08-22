@@ -7,6 +7,18 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
+  resources :users, only: [:create] do 
+
+    collection do
+      post :authenticate
+      get :register
+      get :sign_in
+    end
+
+    post :sign_out
+
+  end
+
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
