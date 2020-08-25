@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  # before_action:
   def authenticate
-    @user = User.find_by(email: user_params[:email])
-    if @user.present? && @user.authenticate(user_params[:password])
+    @user = User.new
+    if @user.authenticate_with_credentials(user_params[:email], user_params[:password])
       session[:user_id] = @user.id
       return redirect_to root_path, notice: 'Logged in successfully'
     else 
@@ -37,8 +36,6 @@ class UsersController < ApplicationController
     redirect_to root_url, :notice => 'Logged out!'
   end
 
-
-  
   private
   def user_params
     params.require(:user).permit(
