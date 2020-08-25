@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def authenticate
-    @user = User.new
-    if @user.authenticate_with_credentials(user_params[:email], user_params[:password])
+    @temp_user = User.new
+    if @user = @temp_user.authenticate_with_credentials(user_params[:email], user_params[:password])
       session[:user_id] = @user.id
       return redirect_to root_path, notice: 'Logged in successfully'
     else 
