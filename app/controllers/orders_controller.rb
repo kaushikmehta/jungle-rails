@@ -11,6 +11,12 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+      puts "ORDERRRRR #{order.inspect}" 
+
+      user_order = Order.find(order.id)
+      puts "USER ON ORDER ROUTE #{user_order}" 
+      UserMailer.order_confirmation(user_order).deliver_now
+      
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
