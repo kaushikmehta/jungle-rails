@@ -4,14 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-     <div class="order-summary jumbotron">
+     <p>
       <h3>Thank you for your order!</h3>
-      <h5>To verify, the email we used was <strong> <%= @email %> </strong> </h5>
       <h5>The details of your order are included in the table below </h5>
-    </div>
+    </p>
 
     <%= render 'mailer_order_details', order: @order %>
-
-    <p>Thanks for joining and have a great day!</p>
   </body>
 </html>

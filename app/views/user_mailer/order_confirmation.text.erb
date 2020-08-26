@@ -1,6 +1,12 @@
-Thank you for your oder, <%=@order.email %>
+Thank you for your oder, <%= @order.email %>
 ==============================================
- 
-To login to the site, just follow this link: <%= @url %>.
- 
-Thanks for joining and have a great day!
+You made the following purchases
+<% @order.line_items.each do |item| %>
+    <%= product.name %>
+    <%= product.description %>
+    <%= quantity %>
+    <%= humanized_money_with_symbol product.price %>
+    <%= humanized_money_with_symbol product.price * quantity %>
+<% end %>
+
+Thanks for shopping with us!
